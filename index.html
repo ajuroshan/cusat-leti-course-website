@@ -4,386 +4,394 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Masters Program - Dual Degree Opportunity</title>
+  <title>Dual Degree Master's Program | CUSAT & LETI</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    .feature-icon {
-      font-size: 2rem;
-      color: #0d6efd;
-    }
-
-    .card-img-top {
-      height: 250px;
-      object-fit: cover;
-    }
-
-    .section-header {
-      margin-bottom: 30px;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-
-    .card {
-      min-height: 350px;
-    }
-
-    .map-container iframe {
-      border-radius: 10px;
+    :root {
+      --primary-color: #1a237e;
+      --secondary-color: #ffd700;
+      --accent-color: #4a148c;
+      --text-dark: #2d3436;
+      --text-light: #636e72;
     }
 
     body {
-      margin: 0;
-      height: 100vh;
-      background: linear-gradient(45deg, #ffffff, #fbfdff, #ffffff, #e4e4e4);
-      background-size: 400% 400%;
-      animation: gradientAnimation 10s ease infinite;
+      font-family: 'Roboto', sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
     }
 
-    @keyframes gradientAnimation {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
+    h1, h2, h3, h4, h5 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      /* color: var(--primary-color); */
     }
 
-    @keyframes move-background {
-      0% {
-        transform: translate(0, 0);
-      }
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/cusat_adm.png');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 120px 0 80px 0;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    }
 
-      50% {
-        transform: translate(-10px, 10px);
-      }
+    .nav-gradient {
+      background: var(--primary-color);
+      /* box-shadow: 0 2px 15px rgba(0,0,0,0.1); */
+    }
 
-      100% {
-        transform: translate(0, 0);
-      }
+    .feature-card {
+      transition: transform 0.3s ease;
+      border: none;
+      border-radius: 15px;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      /* box-shadow: 0 15px 30px rgba(0,0,0,0.1); */
+    }
+
+    .icon-wrapper {
+      width: 70px;
+      height: 70px;
+      background: var(--secondary-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .section-title {
+      position: relative;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .section-title:after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: var(--secondary-color);
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .university-logo {
+      max-width: 220px;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .university-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .testimonial-card {
+      border-left: 4px solid var(--secondary-color);
+      background: #f8f9fa;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary-color);
+      border: none;
+      padding: 12px 30px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-color);
+      transform: translateY(-2px);
+    }
+
+    .contact-card {
+      background: var(--primary-color);
+      color: white;
+      border-radius: 15px;
+      padding: 2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .map-container {
+      height: 400px;
+      border-radius: 15px;
+      overflow: hidden;
     }
 
     @media (max-width: 768px) {
-      .map-container iframe {
-        height: 250px;
-        /* Smaller map size for smaller screens */
+      .hero-section {
+        padding: 100px 0 60px 0;
+        clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .map-container {
+        height: 300px;
       }
     }
   </style>
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="0">
+<body data-bs-spy="scroll" data-bs-target="#navbar">
 
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav-gradient">
     <div class="container">
-      <a class="navbar-brand" href="#">Program</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand fw-bold" href="#">DualDegreeMasters</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#learn-more">Learn More</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#program">Program</a></li>
+          <li class="nav-item"><a class="nav-link" href="#partners">Partners</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
+
   <!-- Hero Section -->
-  <header class="py-5" style="margin-top: 8rem;">
+  <section class="hero-section" id="home">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-8">
-          <h1 class="display-4 mb-3" data-aos="fade-up">Masters Program</h1>
-          <h2 class="h4 mb-4" data-aos="fade-up" data-aos-delay="100">Dual Degree Opportunity with CUSAT & LETI</h2>
-          <p class="lead" data-aos="fade-up" data-aos-delay="200">A cutting-edge elective program for students
-            passionate about electronic component design and semiconductors.</p>
-        </div>
-        <div class="col-lg-4" data-aos="fade-left" data-aos-delay="300">
-          <img src="images/cusat_adm.png" alt="University" class="rounded img-fluid" />
+        <div class="col-lg-8 text-center text-lg-start" data-aos="fade-right">
+          <h1 class="display-4 fw-bold mb-4">Dual Degree Master's Program</h1>
+          <p class="lead mb-5">Advanced Semiconductor Technology & Electronics Engineering<br>In Partnership with CUSAT & LETI</p>
+          <a href="#program" class="btn btn-primary btn-lg">Explore Program</a>
         </div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <section class="container my-5">
-    <div class="row text-center  d-flex align-items-center justify-content-center">
-      <!-- CUSAT -->
-      <div class="col-md-6 mb-4 d-flex align-items-center justify-content-center h-100" data-aos="fade-up"
-        data-aos-delay="200">
-        <div class="d-flex flex-column w-100 h-100">
-          <img src="images/cusat_logo.png" alt="CUSAT Logo" class="img-fluid mx-auto" style="max-width: 200px;" />
-          <h4 class="mt-3">CUSAT</h4>
-          <p class="text-muted">Cochin University of Science and Technology (CUSAT) is a premier technical university in
-            India, renowned for its research and academic excellence in engineering, technology, and science. With a
-            rich legacy and state-of-the-art facilities, CUSAT provides a dynamic learning environment for students to
-            innovate and thrive.</p>
+  <!-- University Partners -->
+  <section class="py-5 bg-light" id="partners">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Academic Partners</h2>
+      <div class="row g-5 align-items-center">
+        <div class="col-md-6" data-aos="fade-right">
+          <img src="images/cusat_logo.png" alt="CUSAT" class="university-logo">
+          <h3 class="mt-4">Cochin University of Science and Technology</h3>
+          <p class="text-muted">Premier technical university in India with state-of-the-art research facilities and a legacy of academic excellence in engineering and technology.</p>
         </div>
-      </div>
-      <!-- LETI -->
-      <div class="col-md-6 mb-4 d-flex align-items-center justify-content-center h-100" data-aos="fade-up"
-        data-aos-delay="400">
-        <div class="d-flex flex-column w-100 h-100">
-          <img src="images/leti_logo.png" alt="LETI Logo" class="img-fluid mx-auto" style="max-width: 200px;" />
-          <h4 class="mt-3">LETI</h4>
-          <p class="text-muted">The St. Petersburg State Electrotechnical University (LETI) is one of Russia's leading
-            institutions in the field of electrical engineering, electronics, and telecommunications. LETI is known for
-            its cutting-edge research, strong industry connections, and its contribution to advancements in science and
-            technology worldwide.</p>
+        <div class="col-md-6" data-aos="fade-left">
+          <img src="images/leti_logo.png" alt="LETI" class="university-logo">
+          <h3 class="mt-4">St. Petersburg Electrotechnical University</h3>
+          <p class="text-muted">Russia's leading institution in electrical engineering and electronics, renowned for its cutting-edge research and industry collaborations.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Key Features -->
-  <section class="bg-light py-5">
+  <section class="py-5" id="program">
     <div class="container">
-      <h2 class="section-header text-center" data-aos="fade-up">Key Features</h2>
+      <h2 class="section-title" data-aos="fade-up">Program Features</h2>
       <div class="row g-4">
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="feature-card p-4 text-center h-100">
+            <div class="icon-wrapper">
+              <i class="fas fa-award fa-2x text-white"></i>
+            </div>
+            <h4>Dual Certification</h4>
+            <p>Earn degrees from both CUSAT and LETI</p>
+          </div>
+        </div>
         <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-          <div class="text-center">
-            <div class="feature-icon mb-3">🎓</div>
-            <h3 class="h5">Dual Certification</h3>
-            <p>International recognition with degrees from CUSAT & LETI</p>
+          <div class="feature-card p-4 text-center h-100">
+            <div class="icon-wrapper">
+              <i class="fas fa-globe-asia fa-2x text-white"></i>
+            </div>
+            <h4>Global Experience</h4>
+            <p>Study in India and Russia</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-          <div class="text-center">
-            <div class="feature-icon mb-3">🌍</div>
-            <h3 class="h5">Study Abroad</h3>
-            <p>One year at St. Petersburg Electrotechnical University 'LETI'</p>
+          <div class="feature-card p-4 text-center h-100">
+            <div class="icon-wrapper">
+              <i class="fas fa-industry fa-2x text-white"></i>
+            </div>
+            <h4>Industry Aligned</h4>
+            <p>Curriculum developed with industry leaders</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-          <div class="text-center">
-            <div class="feature-icon mb-3">👥</div>
-            <h3 class="h5">Limited Seats</h3>
-            <p>15 applicants, 5 fee waivers based on performance</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-          <div class="text-center">
-            <div class="feature-icon mb-3">🔬</div>
-            <h3 class="h5">Advanced Curriculum</h3>
-            <p>Designed with industry leaders in semiconductors</p>
+          <div class="feature-card p-4 text-center h-100">
+            <div class="icon-wrapper">
+              <i class="fas fa-users fa-2x text-white"></i>
+            </div>
+            <h4>Limited Intake</h4>
+            <p>Only 15 seats with scholarship options</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Course Modules -->
+  <!-- Curriculum -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Curriculum Structure</h2>
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-right">
+          <div class="feature-card p-4 h-100">
+            <h4 class="mb-3"><i class="fas fa-book-open me-2"></i>Core Modules</h4>
+            <ul class="list-unstyled">
+              <li class="mb-2">• Advanced Semiconductor Physics</li>
+              <li class="mb-2">• Nanoelectronics Fabrication</li>
+              <li class="mb-2">• Embedded Systems Design</li>
+              <li class="mb-2">• AI Applications in Electronics</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+          <div class="feature-card p-4 h-100">
+            <h4 class="mb-3"><i class="fas fa-graduation-cap me-2"></i>Outcomes</h4>
+            <ul class="list-unstyled">
+              <li class="mb-2">• International Research Exposure</li>
+              <li class="mb-2">• Advanced Technical Expertise</li>
+              <li class="mb-2">• Global Professional Network</li>
+              <li class="mb-2">• Cross-cultural Competence</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose -->
   <section class="py-5">
     <div class="container">
-      <h2 class="section-header text-center" data-aos="fade-up">Course Modules</h2>
+      <h2 class="section-title" data-aos="fade-up">Why Choose Us?</h2>
       <div class="row g-4">
-        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <h3 class="h4 mb-3">Core Modules</h3>
-          <ul class="list-unstyled">
-            <li class="mb-3">• Advanced Semiconductor Materials</li>
-            <li class="mb-3">• Embedded Systems and IoT</li>
-            <li class="mb-3">• Nanoelectronics and Fabrication</li>
-            <li class="mb-3">• Artificial Intelligence for Electronics</li>
-          </ul>
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="feature-card h-100">
+            <img src="https://images.unsplash.com/photo-1581090700227-2934e7a24b63" class="card-img-top" alt="History">
+            <div class="p-4">
+              <h4>138 Years Legacy</h4>
+              <p>Learn from institutions with combined experience of over a century in technical education</p>
+            </div>
+          </div>
         </div>
-        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="h4 mb-3">Learning Outcomes</h3>
-          <ul class="list-unstyled">
-            <li class="mb-3">• Expertise in electronic component design</li>
-            <li class="mb-3">• International research experience</li>
-            <li class="mb-3">• Global networking opportunities</li>
-            <li class="mb-3">• Interdisciplinary problem-solving skills</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us -->
-  <section class="bg-light py-5">
-    <div class="container">
-      <h2 class="section-header text-center" data-aos="fade-up">Why Choose This Program?</h2>
-      <div class="row g-4">
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="card h-100">
-            <img src="https://images.unsplash.com/photo-1581184702383-bf94dbd0e6c0" class="card-img-top"
-              alt="Prestigious History" />
-            <div class="card-body">
-              <h5 class="card-title">Prestigious History</h5>
-              <p class="card-text">LETI boasts 138 years of academic excellence with Nobel Prize-winning alumni and a
-                legacy of innovation in electronics and semiconductors.</p>
+          <div class="feature-card h-100">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" class="card-img-top" alt="Culture">
+            <div class="p-4">
+              <h4>Cultural Immersion</h4>
+              <p>Experience diverse cultures through exchange programs and international collaborations</p>
             </div>
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="card h-100">
-            <img src="https://images.unsplash.com/photo-1565159715-d8e9f4fa3ff4" class="card-img-top"
-              alt="Cultural Exchange" />
-            <div class="card-body">
-              <h5 class="card-title">Cultural Exchange</h5>
-              <p class="card-text">Experience life in Russia, engage in cultural programs, visit historical landmarks,
-                and build lifelong global connections with peers from diverse backgrounds.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="card h-100">
-            <img src="https://images.unsplash.com/photo-1521747116042-5c12eaf51bfc" class="card-img-top"
-              alt="Industry Connections" />
-            <div class="card-body">
-              <h5 class="card-title">Industry Connections</h5>
-              <p class="card-text">Network with faculty, researchers, and industry professionals from across the globe.
-                Benefit from our strong industry partnerships.</p>
+          <div class="feature-card h-100">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7" class="card-img-top" alt="Industry">
+            <div class="p-4">
+              <h4>Industry Connect</h4>
+              <p>Strong partnerships with leading semiconductor companies worldwide</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Apply Now -->
-  <section class="py-5 text-center">
-    <div class="container">
-      <h2 class="mb-4" data-aos="fade-up">Ready to Apply?</h2>
-      <p class="mb-4" data-aos="fade-up" data-aos-delay="100">Limited seats available with freeship opportunities for
-        qualified candidates.</p>
-      <button class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="200">Apply Now</button>
     </div>
   </section>
 
   <!-- Testimonials -->
-  <section class="bg-light py-5">
+  <section class="py-5 bg-light">
     <div class="container">
-      <h2 class="section-header text-center" data-aos="fade-up">What Our Students Say</h2>
+      <h2 class="section-title" data-aos="fade-up">Student Experiences</h2>
       <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="testimonial-card p-4 h-100">
+            <p class="fst-italic">"The international exposure helped me secure a position at a global semiconductor firm."</p>
+            <h5 class="mt-3">- Maria, LETI Alumni</h5>
+          </div>
+        </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1506348266656-47d237cb56a1" class="card-img-top"
-              alt="Student Testimonial" />
-            <div class="card-body">
-              <h5 class="card-title">Maria - LETI Exchange Student</h5>
-              <p class="card-text">"This program has transformed my understanding of semiconductor technologies and
-                given me valuable international experience."</p>
-            </div>
+          <div class="testimonial-card p-4 h-100">
+            <p class="fst-italic">"The dual degree gave me a competitive edge in both academic and professional spheres."</p>
+            <h5 class="mt-3">- Raj, CUSAT Alumni</h5>
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1565097099-d0f4c1e52960" class="card-img-top"
-              alt="Student Testimonial" />
-            <div class="card-body">
-              <h5 class="card-title">John - CUSAT Graduate</h5>
-              <p class="card-text">"The dual degree program opened doors to global career opportunities. I’ve gained
-                knowledge that makes me stand out in the industry."</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1560416733-92a399de8b40" class="card-img-top"
-              alt="Student Testimonial" />
-            <div class="card-body">
-              <h5 class="card-title">Liam - LETI Exchange Student</h5>
-              <p class="card-text">"The experience at LETI has been amazing. The program offered me a chance to work on
-                cutting-edge projects with experts in the field."</p>
-            </div>
+          <div class="testimonial-card p-4 h-100">
+            <p class="fst-italic">"The research facilities and faculty mentorship were exceptional."</p>
+            <h5 class="mt-3">- Anna, Current Student</h5>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="container my-5">
-    <div class="row">
-      <!-- Left CUSAT Map -->
-      <div class="col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-        <h3>CUSAT Map</h3>
-        <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=...CUSAT_MAP_URL..." width="100%" height="400"
-            frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-        </div>
-      </div>
-
-      <!-- Right LETI Map -->
-      <div class="col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-        <h3>LETI Map</h3>
-        <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=...LETI_MAP_URL..." width="100%" height="400"
-            frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Us -->
-  <section class="py-5" id="contact">
+  <!-- Maps -->
+  <section class="py-5">
     <div class="container">
-      <h2 class="section-header text-center">Contact Us</h2>
+      <h2 class="section-title" data-aos="fade-up">Our Locations</h2>
       <div class="row g-4">
-        <!-- CUSAT Contact Information -->
-        <div class="col-md-6 mb-4">
-          <div class="d-flex align-items-center mb-3">
-            <h4 class="me-2">CUSAT 📍</h4>
+        <div class="col-md-6" data-aos="fade-right">
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.788855031071!2d76.3285523147943!3d9.940018492863364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0873e8d8c58b0d%3A0xce7d68e8815d940f!2sCochin%20University%20of%20Science%20and%20Technology!5e0!3m2!1sen!2sin!4v1658328570352!5m2!1sen!2sin" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
           </div>
-          <ul class="list-unstyled">
-            <li>
-              <strong>Email:</strong>admissions@cusat.ac.in ✉️
-            </li>
-            <li>
-              <strong>Phone:</strong>+91 484 257 7550 📞
-            </li>
-            <li>
-              <strong>Address:</strong>Cochin University of Science and Technology, Cochin, Kerala, India 🏠
-            </li>
-          </ul>
         </div>
-
-        <!-- LETI Contact Information -->
-        <div class="col-md-6 mb-4">
-          <div class="d-flex align-items-center mb-3">
-            <h4 class="me-2">LETI 📍</h4>
+        <div class="col-md-6" data-aos="fade-left">
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.6037872533277!2d30.31804031609619!3d59.93438138187623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696314a2f2383e5%3A0x4e5d8fd9c697c3e2!2sSaint%20Petersburg%20Electrotechnical%20University!5e0!3m2!1sen!2sru!4v1658328608493!5m2!1sen!2sru" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
           </div>
-          <ul class="list-unstyled">
-            <li>
-              <strong>Email:</strong>info@leti.ru ✉️
-            </li>
-            <li>
-              <strong>Phone:</strong>+7 812 232 3030 📞
-            </li>
-            <li>
-              <strong>Address:</strong>St. Petersburg Electrotechnical University, St. Petersburg, Russia 🏠
-            </li>
-          </ul>
         </div>
       </div>
     </div>
   </section>
-  <!-- Footer -->
 
-  <footer class="py-4">
+  <!-- Contact -->
+  <section class="py-5  text-white">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 text-center text-md-start">
-          <p class="mb-0">© 2025 Masters Program. All rights reserved.</p>
-        </div>
-        <div class="col-md-6 text-center text-md-end">
-          <a href="#" class="text-decoration-none me-3">Contact Us</a>
-          <a href="#" class="text-decoration-none">Privacy Policy</a>
+      <div class="contact-card" data-aos="zoom-in">
+        <h2 class="section-title text-white mb-5">Contact Admissions</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <h4><i class="fas fa-university me-2"></i>CUSAT Office</h4>
+            <p class="mb-1">📞 +91 484 257 7550</p>
+            <p class="mb-1">✉️ admissions@cusat.ac.in</p>
+            <p>🏠 Cochin, Kerala, India</p>
+          </div>
+          <div class="col-md-6">
+            <h4><i class="fas fa-university me-2"></i>LETI Office</h4>
+            <p class="mb-1">📞 +7 812 234 5678</p>
+            <p class="mb-1">✉️ int.office@etu.ru</p>
+            <p>🏠 St. Petersburg, Russia</p>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 bg-light">
+    <div class="container text-center">
+      <div class="d-flex justify-content-center mb-3">
+        <a href="#" class="text-dark mx-3"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="text-dark mx-3"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-dark mx-3"><i class="fab fa-facebook"></i></a>
+      </div>
+      <p class="mb-0">&copy; 2024 Dual Degree Master's Program. All rights reserved.</p>
     </div>
   </footer>
 
@@ -391,14 +399,10 @@
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({
-      offset: 200, // Trigger animations when elements are 200px from the viewport
-      duration: 1000, // Duration of the animation in milliseconds
-      easing: 'ease-in-out', // Smooth easing for animations
-      delay: 100, // Delay before the animation starts
-      once: true, // Only trigger animations once (not on scroll)
-      anchorPlacement: 'top-bottom' // Start animation when the element is at the top of the viewport
-    })
+      duration: 1000,
+      once: true,
+      easing: 'ease-in-out'
+    });
   </script>
 </body>
-
 </html>
