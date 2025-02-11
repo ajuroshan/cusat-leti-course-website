@@ -1,774 +1,1023 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dual Degree Master's Program | CUSAT & LETI</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <style>
-      :root {
-        --primary-color: #1a237e;
-        --secondary-color: #ffd700;
-        --accent-color: #4a148c;
-        --text-dark: #2d3436;
-        --text-light: #636e72;
-        --bs-body-font-family: 'Roboto', sans-serif; /* Bootstrap integration for font */
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dual Degree Master's Program | CUSAT & LETI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary-color: #1a237e;
+      --secondary-color: #ffd700;
+      --accent-color: #4a148c;
+      --text-dark: #2d3436;
+      --text-light: #636e72;
+      --bs-body-font-family: 'Roboto', sans-serif;
+      /* Bootstrap integration for font */
+    }
+
+    body {
+      font-family: var(--bs-body-font-family);
+      /* Use Bootstrap's body font variable */
+      color: var(--text-dark);
+      line-height: 1.7;
+      /* Improved line height for readability */
+    }
+
+    /* Typography Enhancements */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      color: var(--primary-color);
+      /* Headings are primary color */
+      line-height: 1.3;
+      /* Closer line height for headings */
+    }
+
+    .display-4 {
+      font-weight: 800;
+      /* Make hero title bolder */
+    }
+
+    .lead {
+      font-size: 1.1rem;
+      /* Slightly larger lead text */
+      color: #eee;
+      /* Lighter lead text color in hero */
+    }
+
+    .section-title {
+      position: relative;
+      margin-bottom: 3.5rem;
+      /* Increased spacing under section titles */
+      text-align: center;
+      font-size: 2.5rem;
+      /* Larger section titles */
+    }
+
+    .section-title:after {
+      content: '';
+      width: 70px;
+      /* Slightly wider underline */
+      height: 5px;
+      /* Thicker underline */
+      background: var(--secondary-color);
+      position: absolute;
+      bottom: -18px;
+      /* Lower underline position */
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 5px;
+      /* Rounded underline */
+    }
+
+    /* Hero Section Styles */
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('images/cusat_adm.png');
+      /* Darker overlay */
+      background-size: cover;
+      background-position: center center;
+      /* Explicitly set center center */
+      color: white;
+      padding: 150px 0 100px 0;
+      /* Increased padding */
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      /* Steeper clip path */
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      /* Text shadow for better readability */
+    }
+
+    .nav-gradient {
+      position: relative;
+      /* Required for pseudo-element positioning */
+      background: transparent;
+      /* Remove the solid background */
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      padding-top: 0.7rem;
+      padding-bottom: 0.7rem;
+      overflow: hidden;
+      /* Ensure the pseudo-element doesn't overflow */
+    }
+
+    .nav-gradient::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, white 45%, #1a237e 55%);
+      /* Left half white, right half blue */
+      z-index: -1;
+      /* Place the gradient behind the content */
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background: linear-gradient(to right, white 45%, #1a237e 55%);
       }
 
-      body {
-        font-family: var(--bs-body-font-family); /* Use Bootstrap's body font variable */
-        color: var(--text-dark);
-        line-height: 1.7; /* Improved line height for readability */
+      50% {
+        background: linear-gradient(to right, white 50%, #1a237e 50%);
       }
 
-      /* Typography Enhancements */
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Inter', sans-serif;
-        font-weight: 700;
-        color: var(--primary-color); /* Headings are primary color */
-        line-height: 1.3; /* Closer line height for headings */
+      100% {
+        background: linear-gradient(to right, white 45%, #1a237e 55%);
+      }
+    }
+
+    .navbar-brand {
+      font-size: 1.7rem;
+      /* Larger navbar brand */
+      font-weight: 700;
+    }
+
+    /* Logo Styles */
+    .logo {
+      width: 50px;
+      /* Adjust logo size */
+      height: auto;
+      /* Maintain aspect ratio */
+      margin-right: px;
+      /* Space between logos */
+    }
+
+    /* Small Text Styles */
+    .small-text {
+      font-size: 12px;
+      /* Smaller font size */
+      color: black;
+      /* Black text for the first half */
+      line-height: 1.2;
+      /* Adjust line height */
+      margin-top: 2px;
+      /* Space above the small text */
+    }
+
+    /* Ensure black text in the first half */
+    .navbar-brand span {
+      color: black;
+      /* Black text for "ETU LETI" */
+    }
+
+    .navbar-nav .nav-link {
+      color: rgba(255, 255, 255, 0.8);
+      /* Lighter nav links */
+      margin-left: 1rem;
+      margin-right: 1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: white;
+      /* White nav links on hover and active */
+    }
+
+    /* Feature Card Styles */
+    .feature-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      /* Smooth transitions */
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      /* Light card shadow */
+      background-color: white;
+      /* Explicit white background for cards */
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      /* Reduced hover lift */
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      /* Enhanced shadow on hover */
+    }
+
+    /* Container for Logo and Text */
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* Center align logos and text */
+      text-align: center;
+      /* Center align text */
+      margin-bottom: 20px;
+      /* Space between logo containers */
+    }
+
+    /* University Logo Styles */
+    .university-logo {
+      max-width: 250px;
+      /* Slightly larger logos */
+      height: auto;
+      transition: transform 0.3s ease;
+      opacity: 0.9;
+      /* Slightly less opaque logos */
+      margin-bottom: 10px;
+      /* Space between logo and text */
+    }
+
+    .university-logo:hover {
+      transform: scale(1.08);
+      /* Enhanced hover scale */
+      opacity: 1;
+      /* Full opacity on hover */
+    }
+
+    /* Text Below Logos */
+    .logo-text {
+      font-size: 1.1rem;
+      /* Adjust font size */
+      color: var(--text-dark);
+      /* Use your theme's text color */
+      margin-top: 10px;
+      /* Space between logo and text */
+    }
+
+    /* Testimonial Card Styles */
+    .testimonial-card {
+      border-left: 5px solid var(--secondary-color);
+      /* Thicker testimonial border */
+      background: #f8f9fa;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      /* Subtle shadow for testimonials */
+    }
+
+    .testimonial-card:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      /* Enhanced shadow on testimonial hover */
+      background: #fff;
+      /* White background on testimonial hover */
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      color: var(--text-light);
+    }
+
+    /* Button Styles */
+    .btn-primary {
+      background: var(--primary-color);
+      border: none;
+      padding: 14px 35px;
+      /* Slightly larger buttons */
+      font-weight: 600;
+      letter-spacing: 1px;
+      /* Increased letter spacing */
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      /* Button shadow */
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-color);
+      transform: translateY(-3px);
+      /* Slightly more pronounced hover lift */
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      /* Enhanced button hover shadow */
+    }
+
+    /* Contact Card Styles */
+    .contact-card {
+      background: var(--primary-color);
+      color: white;
+      border-radius: 15px;
+      padding: 3rem;
+      /* Increased contact card padding */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      /* Contact card shadow */
+    }
+
+    .contact-card:hover {
+      transform: translateY(-8px);
+      /* Enhanced contact card hover lift */
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      /* Enhanced contact card hover shadow */
+    }
+
+    .contact-card h4 {
+      color: var(--secondary-color);
+      /* Contact card heading color */
+      margin-bottom: 1.2rem;
+      /* Increased spacing below contact headings */
+    }
+
+    .two-column-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      /* 2 columns */
+      gap: 10px;
+      /* Space between items */
+      list-style-type: none;
+      /* Remove default bullets */
+      padding-left: 0;
+      /* Remove default padding */
+    }
+
+    .two-column-list li {
+      padding: 8px;
+      /* Add padding for better spacing */
+      background-color: #f9f9f9;
+      /* Light background for each item */
+      border-radius: 4px;
+      /* Rounded corners */
+    }
+
+    h3 {
+      color: var(--primary-color);
+      /* Use your theme's primary color */
+      margin-top: 20px;
+      /* Space above the heading */
+      margin-bottom: 10px;
+      /* Space below the heading */
+      font-size: 1.5rem;
+      /* Larger font size */
+      font-weight: 600;
+      /* Bold text */
+    }
+
+    /* Map Container Styles */
+    .map-container {
+      height: 450px;
+      /* Increased map height */
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      /* Map shadow */
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #f8f9fa;
+      /* Light background for footer */
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      border-top: 1px solid #eee;
+      /* Subtle footer border */
+    }
+
+    footer p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    footer .fab {
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      transition: color 0.3s ease;
+    }
+
+    footer .fab:hover {
+      color: var(--primary-color);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .navbar-nav .nav-link {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
       }
 
-      .display-4 {
-        font-weight: 800; /* Make hero title bolder */
+      .hero-section {
+        padding-top: 120px;
+        padding-bottom: 90px;
+        clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+        /* Adjust clip path for smaller screens */
+      }
+    }
+
+
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 120px 0 70px 0;
+        /* Further reduced hero padding on smaller screens */
+        clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+        /* Adjust clip path for mobile */
+        text-align: center !important;
+        /* Center hero text on mobile */
       }
 
-      .lead {
-        font-size: 1.1rem; /* Slightly larger lead text */
-        color: #eee; /* Lighter lead text color in hero */
+      .hero-section .display-4 {
+        font-size: 2.8rem;
+        /* Reduced hero title size on mobile */
+      }
+
+      .hero-section .lead {
+        font-size: 1rem;
+        /* Reduced lead text size on mobile */
       }
 
       .section-title {
-        position: relative;
-        margin-bottom: 3.5rem; /* Increased spacing under section titles */
-        text-align: center;
-        font-size: 2.5rem; /* Larger section titles */
+        font-size: 2.2rem;
+        /* Smaller section titles on mobile */
+        margin-bottom: 2.5rem;
+        /* Reduced margin below section titles on mobile */
       }
 
       .section-title:after {
-        content: '';
-        width: 70px; /* Slightly wider underline */
-        height: 5px; /* Thicker underline */
-        background: var(--secondary-color);
-        position: absolute;
-        bottom: -18px; /* Lower underline position */
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 5px; /* Rounded underline */
+        bottom: -12px;
+        /* Adjust underline position on mobile */
       }
 
-      /* Hero Section Styles */
-      .hero-section {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('images/cusat_adm.png'); /* Darker overlay */
-        background-size: cover;
-        background-position: center center; /* Explicitly set center center */
-        color: white;
-        padding: 150px 0 100px 0; /* Increased padding */
-        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); /* Steeper clip path */
-        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
-      }
-
-      /* Navigation Bar Styles */
-      .nav-gradient {
-        background: var(--primary-color);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for navbar */
-        padding-top: 0.7rem;
-        padding-bottom: 0.7rem; /* Reduced navbar padding */
-      }
-
-      .navbar-brand {
-        font-size: 1.7rem; /* Larger navbar brand */
-        font-weight: 700;
-      }
-
-      .navbar-nav .nav-link {
-        color: rgba(255, 255, 255, 0.8); /* Lighter nav links */
-        margin-left: 1rem;
-        margin-right: 1rem;
-        font-weight: 500;
-        transition: color 0.3s ease;
-      }
-
-      .navbar-nav .nav-link:hover,
-      .navbar-nav .nav-link.active {
-        color: white; /* White nav links on hover and active */
-      }
-
-      /* Feature Card Styles */
-      .feature-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
-        border: none;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Light card shadow */
-        background-color: white; /* Explicit white background for cards */
-      }
-
-      .feature-card:hover {
-        transform: translateY(-8px); /* Reduced hover lift */
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
-      }
-
-      .icon-wrapper {
-        width: 80px; /* Slightly larger icon wrapper */
-        height: 80px; /* Slightly larger icon wrapper */
-        background: var(--secondary-color);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 25px; /* Increased margin below icon */
-        color: var(--primary-color); /* Icon color set to primary */
-        font-size: 2.5rem; /* Larger icons */
-      }
-
-      /* University Logo Styles */
-      .university-logo {
-        max-width: 250px; /* Slightly larger logos */
-        height: auto;
-        transition: transform 0.3s ease;
-        opacity: 0.9; /* Slightly less opaque logos */
-      }
-
-      .university-logo:hover {
-        transform: scale(1.08); /* Enhanced hover scale */
-        opacity: 1; /* Full opacity on hover */
-      }
-
-      /* Testimonial Card Styles */
-      .testimonial-card {
-        border-left: 5px solid var(--secondary-color); /* Thicker testimonial border */
-        background: #f8f9fa;
-        transition: all 0.3s ease;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for testimonials */
-      }
-
-      .testimonial-card:hover {
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow on testimonial hover */
-        background: #fff; /* White background on testimonial hover */
-      }
-
-      .testimonial-card p {
-        font-style: italic;
-        color: var(--text-light);
-      }
-
-      /* Button Styles */
-      .btn-primary {
-        background: var(--primary-color);
-        border: none;
-        padding: 14px 35px; /* Slightly larger buttons */
-        font-weight: 600;
-        letter-spacing: 1px; /* Increased letter spacing */
-        transition: all 0.3s ease;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Button shadow */
-      }
-
-      .btn-primary:hover {
-        background: var(--accent-color);
-        transform: translateY(-3px); /* Slightly more pronounced hover lift */
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced button hover shadow */
-      }
-
-      /* Contact Card Styles */
-      .contact-card {
-        background: var(--primary-color);
-        color: white;
-        border-radius: 15px;
-        padding: 3rem; /* Increased contact card padding */
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Contact card shadow */
-      }
-
-      .contact-card:hover {
-        transform: translateY(-8px); /* Enhanced contact card hover lift */
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* Enhanced contact card hover shadow */
-      }
-
-      .contact-card h4 {
-        color: var(--secondary-color); /* Contact card heading color */
-        margin-bottom: 1.2rem; /* Increased spacing below contact headings */
-      }
-
-      /* Map Container Styles */
       .map-container {
-        height: 450px; /* Increased map height */
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Map shadow */
+        height: 350px;
+        /* Reduced map height on mobile */
       }
 
-      /* Footer Styles */
-      footer {
-        background-color: #f8f9fa; /* Light background for footer */
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        border-top: 1px solid #eee; /* Subtle footer border */
+      .contact-card {
+        padding: 2rem;
+        /* Reduced contact card padding on mobile */
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+        /* Smaller font size for h1 on mobile */
       }
 
-      footer p {
-        color: var(--text-light);
-        font-size: 0.9rem;
+      h2 {
+        font-size: 1.75rem;
+        /* Smaller font size for h2 on mobile */
       }
 
-      footer .fab {
+      h3 {
         font-size: 1.5rem;
-        color: var(--text-dark);
-        transition: color 0.3s ease;
+        /* Smaller font size for h3 on mobile */
       }
 
-      footer .fab:hover {
-        color: var(--primary-color);
+      .lead {
+        font-size: 1rem;
+        /* Smaller font size for lead text on mobile */
       }
+    }
+  </style>
+</head>
 
-      /* Responsive Adjustments */
-      @media (max-width: 992px) {
-        .navbar-nav .nav-link {
-          margin-left: 0.5rem;
-          margin-right: 0.5rem;
-        }
-        .hero-section {
-          padding-top: 120px;
-          padding-bottom: 90px;
-          clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%); /* Adjust clip path for smaller screens */
-        }
-      }
-
-
-      @media (max-width: 768px) {
-        .hero-section {
-          padding: 120px 0 70px 0; /* Further reduced hero padding on smaller screens */
-          clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); /* Adjust clip path for mobile */
-          text-align: center !important; /* Center hero text on mobile */
-        }
-        .hero-section .display-4 {
-          font-size: 2.8rem; /* Reduced hero title size on mobile */
-        }
-        .hero-section .lead {
-          font-size: 1rem; /* Reduced lead text size on mobile */
-        }
-
-        .section-title {
-          font-size: 2.2rem; /* Smaller section titles on mobile */
-          margin-bottom: 2.5rem; /* Reduced margin below section titles on mobile */
-        }
-        .section-title:after {
-          bottom: -12px; /* Adjust underline position on mobile */
-        }
-
-        .map-container {
-          height: 350px; /* Reduced map height on mobile */
-        }
-
-        .contact-card {
-          padding: 2rem; /* Reduced contact card padding on mobile */
-        }
-      }
-    </style>
-  </head>
-
-  <body data-bs-spy="scroll" data-bs-target="#navbar">
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav-gradient" id="navbar">
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="#">DualDegreeMasters</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#program">Program</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#partners">Partners</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-          </ul>
+<body data-bs-spy="scroll" data-bs-target="#navbar">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav-gradient" id="navbar">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+        <img src="images/cusat_logo.png" alt="CUSAT Logo" class="logo me-2" />
+        <img src="images/leti_logo.png" alt="LETI Logo" class="logo me-2" />
+        <div>
+          <span style="color: black;">ETU LETI & CUSAT</span>
+          <div class="small-text" style="color: black;">Dual Degree Master’s Program</div>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#program">Program</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#partners">Partners</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section class="hero-section" id="home">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 text-center text-lg-start" data-aos="fade-right">
+          <h1 class="display-4 fw-bold mb-4" style="color: white;">NEW GENERATION OF<br>ELECTRONIC COMPONENT BASE</h1>
+          <p class="lead mb-5" style="color: white;">
+            Advanced Semiconductor Technology & Electronics Engineering<br />In Partnership with CUSAT & LETI
+          </p>
+          <a href="#program" class="btn btn-primary btn-lg">Explore Program</a>
         </div>
       </div>
-    </nav>
-
-    <section class="hero-section" id="home">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-8 text-start" data-aos="fade-right">
-            <h1 class="display-4 fw-bold mb-4" style="color: white;">Dual Degree Master's Program</h1>
-            <p class="lead mb-5">
-              Advanced Semiconductor Technology & Electronics Engineering<br />In Partnership with CUSAT & LETI
-            </p>
-            <a href="#program" class="btn btn-primary btn-lg">Explore Program</a>
-          </div>
+    </div>
+  </section>
+  <section class="py-5 bg-light" id="partners">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Academic Partners</h2>
+      <div class="row g-5 align-items-center">
+        <div class="col-md-6 text-center text-md-start" data-aos="fade-right">
+          <img src="images/cusat_logo.png" alt="CUSAT" class="university-logo mb-3" />
+          <h3>Cochin University of Science and Technology</h3>
+          <p class="text-muted mt-3">Premier technical university in India with state-of-the-art research facilities and
+            a legacy of academic excellence in engineering and technology.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-start" data-aos="fade-left">
+          <img src="images/leti_logo.png" alt="LETI" class="university-logo mb-3" />
+          <h3>St. Petersburg Electrotechnical University</h3>
+          <p class="text-muted mt-3">Russia's leading institution in electrical engineering and electronics, renowned
+            for its cutting-edge research and industry collaborations.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="py-5 bg-light" id="partners">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Academic Partners</h2>
-        <div class="row g-5 align-items-center">
-          <div class="col-md-6" data-aos="fade-right">
-            <div class="d-flex align-items-center">
-              <img src="images/cusat_logo.png" alt="CUSAT" class="university-logo me-4" />
-              <div>
-                <h3 class="mt-md-0 mt-3">Cochin University of Science and Technology</h3>
+  <section id="international" class="py-5">
+    <div class="container">
+      <h2 class="section-title">International Cooperation</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="feature-card card h-100">
+            <div class="card-body text-center">
+              <div class="icon-wrapper">
+                <i class="fas fa-globe"></i>
               </div>
+              <h5 class="card-title">Global Reach</h5>
+              <p class="card-text">Partnerships with universities in over 50 countries.</p>
             </div>
-            <p class="text-muted mt-3">Premier technical university in India with state-of-the-art research facilities and a legacy of academic excellence in engineering and technology.</p>
           </div>
-          <div class="col-md-6" data-aos="fade-left">
-            <div class="d-flex align-items-center">
-              <img src="images/leti_logo.png" alt="LETI" class="university-logo me-4" />
-              <div>
-                <h3 class="mt-md-0 mt-3">St. Petersburg Electrotechnical University</h3>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-card card h-100">
+            <div class="card-body text-center">
+              <div class="icon-wrapper">
+                <i class="fas fa-user-graduate"></i>
               </div>
+              <h5 class="card-title">International Students</h5>
+              <p class="card-text">More than 2000 international students.</p>
             </div>
-            <p class="text-muted mt-3">Russia's leading institution in electrical engineering and electronics, renowned for its cutting-edge research and industry collaborations.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="feature-card card h-100">
+            <div class="card-body text-center">
+              <div class="icon-wrapper">
+                <i class="fas fa-hands-helping"></i>
+              </div>
+              <h5 class="card-title">Joint Programs</h5>
+              <p class="card-text">Various joint educational programs and research projects.</p>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-
-    <section id="international" class="py-5">
-      <div class="container">
-          <h2 class="section-title">International Cooperation</h2>
-          <div class="row g-4">
-              <div class="col-md-4" data-aos="fade-up">
-                  <div class="feature-card card h-100">
-                      <div class="card-body text-center">
-                          <div class="icon-wrapper">
-                              <i class="fas fa-globe"></i>
-                           </div>
-                          <h5 class="card-title">Global Reach</h5>
-                          <p class="card-text">Partnerships with universities in over 50 countries.</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                  <div class="feature-card card h-100">
-                      <div class="card-body text-center">
-                          <div class="icon-wrapper">
-                              <i class="fas fa-user-graduate"></i>
-                          </div>
-                          <h5 class="card-title">International Students</h5>
-                          <p class="card-text">More than 2000 international students.</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-                  <div class="feature-card card h-100">
-                      <div class="card-body text-center">
-                          <div class="icon-wrapper">
-                              <i class="fas fa-hands-helping"></i>
-                          </div>
-                          <h5 class="card-title">Joint Programs</h5>
-                          <p class="card-text">Various joint educational programs and research projects.</p>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+    </div>
   </section>
 
   <section id="programs" class="py-5 bg-light">
-      <div class="container">
-          <h2 class="section-title">Academic Programs</h2>
-          <div class="row">
-              <div class="col-md-12">
-                  <h3>Master's Degree Program "New generation of electronic component base"</h3>
-                  <p>The master's program focuses on education of specialists in the field of development and creation
-                      of electronic component base elements based on both traditional semiconductor technologies and
-                      new principles, including elements of radio photonics, semiconductor heterostructures and high
-                      bandgap semiconductors.</p>
-                  <p><b>Key Details:</b></p>
+    <div class="container">
+      <h2 class="section-title">About The Program</h2>
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Master's Degree Program "New generation of electronic component base"</h2>
+          <p>
+            A cutting-edge elective program tailored for students passionate about electronic component design and
+            semiconductors. This program offers multi-department collaboration, welcoming students from various
+            engineering and science disciplines to promote interdisciplinary learning. Additionally, students have the
+            opportunity to study abroad, spending one year at St. Petersburg Electrotechnical University 'LETI' to gain
+            global exposure and enhance their academic experience.
+          </p>
+
+
+          <!-- Curriculum Highlights -->
+          <div class="mb-4">
+            <h4><b>Syllabus:</b></h4>
+            <div class="row">
+              <!-- Column 1: Semester 1 and 3 -->
+              <div class="col-md-6">
+                <div class="mb-4">
+                  <h5>Semester 1</h5>
                   <ul>
-                      <li>Program Code: 11.04.04. Electronics and nanoelectronics</li>
-                      <li>Language: English</li>
-                      <li>Duration: 2 years (4 semesters)</li>
-                      <li>Credits: 120 ECTS</li>
+                    <li>Computer Technology and Simulation in Electronics (3 credits - online)</li>
+                    <li>Microprocessor Techniques (4 credits)</li>
+                    <li>Problems of Modern Electronics (4 credits)</li>
+                    <li>Elective: Russian/Foreign Language (2 credits)</li>
+                    <li>Basics of Scientific Research (2 credits)</li>
+                    <li>Elective: X-ray structural methods / Laser Physics (3 credits)</li>
                   </ul>
+                </div>
 
-                  <p><b>Curriculum Highlights:</b></p>
+                <div class="mb-4">
+                  <h5>Semester 3</h5>
                   <ul>
-                      <li>Computer Technology and Simulation in Electronics</li>
-                      <li>Micro- and Nanotechnology Processes</li>
-                      <li>Semiconductor Heterostructure Technology</li>
-                      <li>Integral and Fibre Optics</li>
-                      <li>Computer Simulation and Design of Microwave and Optical Electronics Instruments and Devices
-                      </li>
+                    <li>Russian/Foreign Language (2 credits)</li>
+                    <li>Integral and Fibre Optics (4 credits)</li>
+                    <li>Semiconductor Heterostructure Technology (3 credits)</li>
+                    <li>Computer Simulation and Design of Microwave/Optical Devices (4 credits)</li>
+                    <li>Elective: Laser Fundamentals / Topological IC Design (4 credits)</li>
+                    <li>Elective: CAD Systems / Photonics Materials (4 credits)</li>
                   </ul>
-                  <p><b>Research Laboratories:</b></p>
-                  <ul>
-                      <li>Laboratory of Microwave Photonics and Magnonics (LMPM)</li>
-                      <li>Laboratory of Solar Heterostructural Photopower</li>
-                      <li>Resource Center "Solid State Physics and Materials Science for Radioelectronic and
-                          Telecommunication Systems"</li>
-                  </ul>
-
-                  <p><b>Focus of Interest:</b></p>
-                  <ul>
-                      <li>Basic technological routes and parameters of technological processes of production
-                          microelectronic products;</li>
-                      <li>Basics of material science of semiconductors and heterostructures;</li>
-                      <li>Design of devices, appliances and systems of electronic technics taking into account the
-                          given requirements;</li>
-                  </ul>
-
-
-                  <p><b>Ph.D. Research:</b> Graduates can continue their studies at the post-graduate level in
-                      various programs including Physics and Astronomy, Electronics, Radio Engineering and
-                      Communication Systems, Photonics, instrumentation, optical and biotechnical systems, and
-                      technologies.</p>
-
+                </div>
               </div>
+
+              <!-- Column 2: Semester 2 and 4 -->
+              <div class="col-md-6">
+                <div class="mb-4">
+                  <h5>Semester 2</h5>
+                  <ul>
+                    <li>Micro- and Nanotechnology Processes (4 credits)</li>
+                    <li>Russian/Foreign Language (2 credits)</li>
+                    <li>Basic Technologies for IC Manufacturing (3 credits)</li>
+                    <li>Semiconductor Heterostructure Technology (3 credits)</li>
+                    <li>Elective: Digital IC Design / Electronics Diagnostics (4 credits)</li>
+                    <li>Economic Elective: R&D Commercialisation / Foreign Economic Activity (2 credits)</li>
+                  </ul>
+                </div>
+                <div class="mb-4">
+                  <h5>Semester 4</h5>
+                  <ul>
+                    <li>Practice and Internships at Partner Facilities</li>
+                    <li>Master Thesis Preparation and Defense</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Focus of Interest -->
+            <div class="mb-4">
+              <h4><b>Focus of Interest:</b></h4>
+              <ul>
+                <li>Design and creation of modern electronic component base elements.</li>
+                <li>Basic technological routes and parameters of microelectronic production processes.</li>
+                <li>Basics of material science of semiconductors and heterostructures.</li>
+                <li>Types of defects in microelectronic product production.</li>
+                <li>Basic technological, control-measuring, and auxiliary equipment for microelectronic production.</li>
+                <li>Design of devices, appliances, and systems of electronic technics based on given requirements.</li>
+                <li>Characteristics of modern CAD systems for microelectronics.</li>
+                <li>Methods for solving problems in technological and circuit design of electronic components.</li>
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <h4><b>Ph.D Research:</b></h4>
+              <p>Master's program graduates can continue their studies at the post-graduate level in the same department
+                under the program</p>
+              <ul>
+                <li>03.06.01 - Physics and Astronomy</li>
+                <li>11.06.01 - Electronics, Radio Engineering and
+                  Communication Systems</li>
+                <li> 12.06.01 - Photonics, instrumentation, optical and biotechnical systems, and
+                  technologies.</li>
+              </ul>
+
+
+            </div>
           </div>
+        </div>
       </div>
+    </div>
   </section>
 
 
   <section class="py-5">
     <div class="container">
-        <h2 class="section-title">Saint Petersburg Electrotechnical University "LETI"</h2>
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-            <div class="col" data-aos="fade-right">
-                <div class="card h-100 feature-card">
-                    <div class="card-body">
-                        <h5 class="card-title">About LETI</h5>
-                        <p class="card-text">
-                            The university was founded in 1886 by Emperor Alexander III and has maintained cooperation with SIEMENS since 1897.
-                            It's the oldest higher educational institution of electrical engineering in Europe.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col" data-aos="fade-left">
-                <div class="card h-100 feature-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Historical Achievements</h5>
-                        <ul class="list-unstyled">
-                            <li>Inventor of Radio Communication: Prof. Alexander S. Popov (1859-1906)</li>
-                            <li>Nobel Prize Laureate in Physics (2000): Prof. Zhores I. Alferov</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="py-5 bg-light">
-    <div class="container">
-        <h2 class="section-title">Key Statistics</h2>
-        <div class="row g-4">
-            <div class="col-md-4" data-aos="fade-up">
-                <div class="card feature-card">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Students</h5>
-                        <p class="card-text">Over 11,000 ETU “LETI” students</p>
-                        <p class="card-text">20% are international students</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="card feature-card">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Research and Development</h5>
-                        <p class="card-text">15 Research institutes</p>
-                        <p class="card-text">10 International projects</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="card feature-card">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Global Cooperation</h5>
-                        <p class="card-text">Over 200 partnership agreements</p>
-                        <p class="card-text">Active in more than 50 partner countries</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="py-5">
-    <div class="container">
-        <h2 class="section-title">Educational Programs</h2>
-        <div class="table-responsive">
-            <table class="table table-bordered text-center feature-card">
-                <thead class="table-dark">
-                    <tr>
-                        <th>Semester</th>
-                        <th>Course</th>
-                        <th>Credits</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>First</td>
-                        <td>Computer Technology and Simulation in Electronics</td>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <td>First</td>
-                        <td>Microprocessor Techniques</td>
-                        <td>4</td>
-                    </tr>
-                    <tr>
-                        <td>Second</td>
-                        <td>Micro- and Nanotechnology Processes</td>
-                        <td>4</td>
-                    </tr>
-                    <tr>
-                        <td>Second</td>
-                        <td>Semiconductor Heterostructure Technology</td>
-                        <td>3</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</section>
-
-<section class="py-5 bg-light">
-    <div class="container">
-        <h2 class="section-title">Research Laboratories</h2>
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-            <div class="col" data-aos="fade-up">
-                <div class="card h-100 feature-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Laboratory of Microwave Photonics and Magnonics</h5>
-                        <p class="card-text">Named after B.A. Kalinikos</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col" data-aos="fade-up" data-aos-delay="200">
-                <div class="card h-100 feature-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Laboratory of Solar Heterostructural Photopower</h5>
-                        <p class="card-text">Named after Nobel winner academic Zh. I. Alferov</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="py-5">
-    <div class="container">
-        <h2 class="section-title">Master’s Degree Program</h2>
-        <div class="card feature-card">
+      <h2 class="section-title">Saint Petersburg Electrotechnical University "LETI"</h2>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col" data-aos="fade-right">
+          <div class="card h-100 feature-card">
             <div class="card-body">
-                <h5 class="card-title">New Generation of Electronic Component Base</h5>
-                <p class="card-text">Program Code: 11.04.04. Electronics and Nanoelectronics</p>
-                <p class="card-text">Language: English | Duration: 2 years (4 semesters)</p>
-                <p class="card-text">Focus on traditional semiconductor technologies, radio photonics, and high-bandgap semiconductors.</p>
+              <h5 class="card-title">About LETI</h5>
+              <p class="card-text">
+                Saint Petersburg Electrotechnical University "LETI" is one of the world's largest education centers
+                specializing in radio engineering, electrical engineering, electronics and computer science. University
+                graduates get Bachelor's and Master's degree or specialist qualification. Today the University trains
+                around 9000 students. Over 200 professors and PhDs work in the University. ETU "LETI" provides education
+                in 19 scientific fields for Bachelors and 53 educational programs for Masters.
+
+
+              </p>
             </div>
+          </div>
         </div>
+        <div class="col" data-aos="fade-left">
+          <div class="card h-100 feature-card">
+            <div class="card-body">
+              <h5 class="card-title">Historical Achievements</h5>
+              <p>Saint Petersburg Electrotechnical University is a participant of the Priority 2030 program and ranks
+                5th
+                in graduate salaries among St. Petersburg technical universities. It is recognized in the Three Missions
+                of the University Russia (2023) and Forbes Russia (2023) rankings. The university’s programs are
+                acclaimed as "The best educational programs of innovative Russia" and it holds notable positions in the
+                RUR Governance and Management ranking (2023) and RAEX ranking for information technology. It also excels
+                in the AC Expert subject rating for artificial intelligence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-    <section class="py-5 bg-light" id="program">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Program Features</h2>
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title">Key Statistics</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="card feature-card">
+            <div class="card-body text-center">
+              <h5 class="card-title">Students</h5>
+              <p class="card-text">Over 11,000 ETU “LETI” students</p>
+              <p class="card-text">20% are international students</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card feature-card">
+            <div class="card-body text-center">
+              <h5 class="card-title">Research and Development</h5>
+              <p class="card-text">15 Research institutes</p>
+              <p class="card-text">10 International projects</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="card feature-card">
+            <div class="card-body text-center">
+              <h5 class="card-title">Global Cooperation</h5>
+              <p class="card-text">Over 200 partnership agreements</p>
+              <p class="card-text">Active in more than 50 partner countries</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title">Research Laboratories</h2>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <!-- Card 1 -->
+        <div class="col" data-aos="fade-up">
+          <div class="card h-100 feature-card">
+            <div class="card-body">
+              <h5 class="card-title">Laboratory of Microwave Photonics and Magnonics</h5>
+              <p class="card-text">Named after B.A. Kalinikos</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100 feature-card">
+            <div class="card-body">
+              <h5 class="card-title">Laboratory of Solar Heterostructural Photopower</h5>
+              <p class="card-text">Named after Nobel winner academic Zh. I. Alferov</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photos outside the container but in the same section -->
+    <div class="col" data-aos="fade-up">
+      <div class="container mt-4 px-0">
+        <div class="row g-2"> <!-- No gap between photos -->
+          <div class="col-4 p-1"> <!-- No padding -->
+            <img
+              src="C:\Users\aquib\OneDrive\Desktop\aquib\projects\cusat-leti-course-website\images\Screenshot 2025-02-12 042403.png"
+              alt="Photo 1" class="img-fluid w-100 h-100 object-fit-cover">
+          </div>
+          <div class="col-4 p-1">
+            <img
+              src="C:\Users\aquib\OneDrive\Desktop\aquib\projects\cusat-leti-course-website\images\Screenshot 2025-02-12 042325.png"
+              alt="Photo 2" class="img-fluid w-100 h-100 object-fit-cover">
+          </div>
+          <div class="col-4 p-1">
+            <img
+              src="C:\Users\aquib\OneDrive\Desktop\aquib\projects\cusat-leti-course-website\images\Screenshot 2025-02-12 042312.png"
+              alt="Photo 3" class="img-fluid w-100 h-100 object-fit-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="py-5 bg-light" id="program">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Program Features</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" data-aos="fade-up">
+          <div class="feature-card p-4 text-center h-100">
+            <div class="icon-wrapper">
+              <i class="fas fa-award fa-2x"></i>
+            </div>
+            <h4>Dual Certification</h4>
+            <p>Earn degrees from both CUSAT and LETI</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-card p-4 text-center h-100">
+            <div class="icon-wrapper">
+              <i class="fas fa-globe-asia fa-2x"></i>
+            </div>
+            <h4>Global Experience</h4>
+            <p>Study in India and Russia</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+          <div class="feature-card p-4 text-center h-100">
+            <div class="icon-wrapper">
+              <i class="fas fa-industry fa-2x"></i>
+            </div>
+            <h4>Industry Aligned</h4>
+            <p>Curriculum developed with industry leaders</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
+          <div class="feature-card p-4 text-center h-100">
+            <div class="icon-wrapper">
+              <i class="fas fa-users fa-2x"></i>
+            </div>
+            <h4>Limited Intake</h4>
+            <p>Only 15 seats with scholarship options</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Curriculum Structure</h2>
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-right">
+          <div class="feature-card p-4 h-100">
+            <h4 class="mb-3"><i class="fas fa-book-open me-2"></i>Course Modules</h4>
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="fas fa-check-circle text-secondary me-1"></i> Advanced Semiconductor Physics
+              </li>
+              <li class="mb-2"><i class="fas fa-check-circle text-secondary me-1"></i> Nanoelectronics Fabrication</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-secondary me-1"></i> Embedded Systems Design</li>
+              <li class="mb-2"><i class="fas fa-check-circle text-secondary me-1"></i> AI Applications in Electronics
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+          <div class="feature-card p-4 h-100">
+            <h4 class="mb-3"><i class="fas fa-graduation-cap me-2"></i>Learning Outcomes</h4>
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="fas fa-bullseye text-secondary me-1"></i> International Research Exposure</li>
+              <li class="mb-2"><i class="fas fa-bullseye text-secondary me-1"></i> Advanced Technical Expertise</li>
+              <li class="mb-2"><i class="fas fa-bullseye text-secondary me-1"></i> Global Professional Network</li>
+              <li class="mb-2"><i class="fas fa-bullseye text-secondary me-1"></i> Cross-cultural Competence</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Why Choose Us?</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="feature-card h-100">
+            <img src="C:\Users\aquib\OneDrive\Desktop\aquib\projects\cusat-leti-course-website\images\leti.jpg"
+              class="card-img-top" alt="History" style="object-fit: cover; height: 220px;" />
+            <div class="card-body p-4">
+              <h4 class="card-title">138 Years Legacy</h4>
+              <p class="card-text">Learn from institutions with combined experience of over a century in technical
+                education</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-card h-100">
+            <img src="C:\Users\aquib\OneDrive\Desktop\aquib\projects\cusat-leti-course-website\images\culturals.jpg"
+              class="card-img-top" alt="Culture" style="object-fit: cover; height: 220px;" />
+            <div class="card-body p-4">
+              <h4 class="card-title">Cultural Immersion</h4>
+              <p class="card-text">Experience diverse cultures through exchange programs and international
+                collaborations</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="feature-card h-100">
+            <img src="C:\Users\aquib\OneDrive\Desktop\aquib\projects\cusat-leti-course-website\images\industrial.jpg"
+              class="card-img-top" alt="Industry" style="object-fit: cover; height: 220px;" />
+            <div class="card-body p-4">
+              <h4 class="card-title">Industry Connect</h4>
+              <p class="card-text">Strong partnerships with leading semiconductor companies worldwide</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="py-5">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Student Experiences</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="testimonial-card p-4 h-100">
+            <p class="fst-italic">"The international exposure helped me secure a position at a global semiconductor
+              firm."</p>
+            <h5 class="mt-3">- Maria, LETI Alumni</h5>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="testimonial-card p-4 h-100">
+            <p class="fst-italic">"The dual degree gave me a competitive edge in both academic and professional
+              spheres."</p>
+            <h5 class="mt-3">- Raj, CUSAT Alumni</h5>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="testimonial-card p-4 h-100">
+            <p class="fst-italic">"The research facilities and faculty mentorship were exceptional."</p>
+            <h5 class="mt-3">- Anna, Current Student</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Our Locations</h2>
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-right">
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.788855031071!2d76.3285523147943!3d9.940018492863364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0873e8d8c58b0d%3A0xce7d68e8815d940f!2sCochin%20University%20of%20Science%20and%20Technology!5e0!3m2!1sen!2sin!4v1658328570352!5m2!1sen!2sin"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.6037872533277!2d30.31804031609619!3d59.93438138187623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696314a2f2383e5%3A0x4e5d8fd9c697c3e2!2sSaint%20Petersburg%20Electrotechnical%20University!5e0!3m2!1sen!2sru!4v1658328608493!5m2!1sen!2sru"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 text-white">
+    <div class="container">
+      <div class="contact-card" data-aos="zoom-in">
+        <h2 class="section-title text-white mb-5">Contact Admissions</h2>
         <div class="row g-4">
-          <div class="col-md-6 col-lg-3" data-aos="fade-up">
-            <div class="feature-card p-4 text-center h-100">
-              <div class="icon-wrapper">
-                <i class="fas fa-award fa-2x"></i>
-              </div>
-              <h4>Dual Certification</h4>
-              <p>Earn degrees from both CUSAT and LETI</p>
-            </div>
+          <div class="col-md-6">
+            <h4><i class="fas fa-university me-2"></i>CUSAT Office</h4>
+            <p class="mb-2"><i class="fas fa-phone me-2"></i> +91 484 257 7550</p>
+            <p class="mb-2"><i class="fas fa-envelope me-2"></i> <a href="mailto:admissions@cusat.ac.in"
+                class="text-white">admissions@cusat.ac.in</a></p>
+            <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i> Cochin, Kerala, India</p>
           </div>
-          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-            <div class="feature-card p-4 text-center h-100">
-              <div class="icon-wrapper">
-                <i class="fas fa-globe-asia fa-2x"></i>
-              </div>
-              <h4>Global Experience</h4>
-              <p>Study in India and Russia</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-            <div class="feature-card p-4 text-center h-100">
-              <div class="icon-wrapper">
-                <i class="fas fa-industry fa-2x"></i>
-              </div>
-              <h4>Industry Aligned</h4>
-              <p>Curriculum developed with industry leaders</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="600">
-            <div class="feature-card p-4 text-center h-100">
-              <div class="icon-wrapper">
-                <i class="fas fa-users fa-2x"></i>
-              </div>
-              <h4>Limited Intake</h4>
-              <p>Only 15 seats with scholarship options</p>
-            </div>
+          <div class="col-md-6">
+            <h4><i class="fas fa-university me-2"></i>LETI Office</h4>
+            <p class="mb-2"><i class="fas fa-phone me-2"></i> +7 812 234 5678</p>
+            <p class="mb-2"><i class="fas fa-envelope me-2"></i> <a href="mailto:int.office@etu.ru"
+                class="text-white">aaminina@etu.ru</a></p>
+            <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i> St. Petersburg, Russia</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="py-5">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Curriculum Structure</h2>
-        <div class="row g-4">
-          <div class="col-md-6" data-aos="fade-right">
-            <div class="feature-card p-4 h-100">
-              <h4 class="mb-3"><i class="fas fa-book-open me-2"></i>Core Modules</h4>
-              <ul class="list-unstyled">
-                <li class="mb-2"><i class="fas fa-check-circle text-secondary me-1"></i> Advanced Semiconductor Physics</li>
-                <li class="mb-2"><i class="fas fa-check-circle text-secondary me-1"></i> Nanoelectronics Fabrication</li>
-                <li class="mb-2"><i class="fas fa-check-circle text-secondary me-1"></i> Embedded Systems Design</li>
-                <li class="mb-2"><i class="fas fa-check-circle text-secondary me-1"></i> AI Applications in Electronics</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-6" data-aos="fade-left">
-            <div class="feature-card p-4 h-100">
-              <h4 class="mb-3"><i class="fas fa-graduation-cap me-2"></i>Outcomes</h4>
-              <ul class="list-unstyled">
-                <li class="mb-2"><i class="fas fa-bullseye text-secondary me-1"></i> International Research Exposure</li>
-                <li class="mb-2"><i class="fas fa-bullseye text-secondary me-1"></i> Advanced Technical Expertise</li>
-                <li class="mb-2"><i class="fas fa-bullseye text-secondary me-1"></i> Global Professional Network</li>
-                <li class="mb-2"><i class="fas fa-bullseye text-secondary me-1"></i> Cross-cultural Competence</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+  <footer class="py-4 bg-light">
+    <div class="container text-center">
+      <div class="d-flex justify-content-center mb-3">
+        <a href="#" class="text-dark mx-3"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="#" class="text-dark mx-3"><i class="fab fa-twitter fa-lg"></i></a>
+        <a href="#" class="text-dark mx-3"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="#" class="text-dark mx-3"><i class="fab fa-instagram fa-lg"></i></a>
       </div>
-    </section>
+      <p class="mb-0">&copy; 2024 Dual Degree Master's Program. All rights reserved.</p>
+    </div>
+  </footer>
 
-    <section class="py-5 bg-light">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Why Choose Us?</h2>
-        <div class="row g-4">
-          <div class="col-md-4" data-aos="fade-up">
-            <div class="feature-card h-100">
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" class="card-img-top" alt="History" style="object-fit: cover; height: 220px;" />
-              <div class="card-body p-4">
-                <h4 class="card-title">138 Years Legacy</h4>
-                <p class="card-text">Learn from institutions with combined experience of over a century in technical education</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="feature-card h-100">
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" class="card-img-top" alt="Culture" style="object-fit: cover; height: 220px;" />
-              <div class="card-body p-4">
-                <h4 class="card-title">Cultural Immersion</h4>
-                <p class="card-text">Experience diverse cultures through exchange programs and international collaborations</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="feature-card h-100">
-              <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7" class="card-img-top" alt="Industry" style="object-fit: cover; height: 220px;" />
-              <div class="card-body p-4">
-                <h4 class="card-title">Industry Connect</h4>
-                <p class="card-text">Strong partnerships with leading semiconductor companies worldwide</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-in-out'
+    });
+  </script>
+</body>
 
-    <section class="py-5">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Student Experiences</h2>
-        <div class="row g-4">
-          <div class="col-md-4" data-aos="fade-up">
-            <div class="testimonial-card p-4 h-100">
-              <p class="fst-italic">"The international exposure helped me secure a position at a global semiconductor firm."</p>
-              <h5 class="mt-3">- Maria, LETI Alumni</h5>
-            </div>
-          </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="testimonial-card p-4 h-100">
-              <p class="fst-italic">"The dual degree gave me a competitive edge in both academic and professional spheres."</p>
-              <h5 class="mt-3">- Raj, CUSAT Alumni</h5>
-            </div>
-          </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="testimonial-card p-4 h-100">
-              <p class="fst-italic">"The research facilities and faculty mentorship were exceptional."</p>
-              <h5 class="mt-3">- Anna, Current Student</h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-5 bg-light">
-      <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Our Locations</h2>
-        <div class="row g-4">
-          <div class="col-md-6" data-aos="fade-right">
-            <div class="map-container">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.788855031071!2d76.3285523147943!3d9.940018492863364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0873e8d8c58b0d%3A0xce7d68e8815d940f!2sCochin%20University%20of%20Science%20and%20Technology!5e0!3m2!1sen!2sin!4v1658328570352!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-          </div>
-          <div class="col-md-6" data-aos="fade-left">
-            <div class="map-container">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.6037872533277!2d30.31804031609619!3d59.93438138187623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696314a2f2383e5%3A0x4e5d8fd9c697c3e2!2sSaint%20Petersburg%20Electrotechnical%20University!5e0!3m2!1sen!2sru!4v1658328608493!5m2!1sen!2sru" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-5 text-white">
-      <div class="container">
-        <div class="contact-card" data-aos="zoom-in">
-          <h2 class="section-title text-white mb-5">Contact Admissions</h2>
-          <div class="row g-4">
-            <div class="col-md-6">
-              <h4><i class="fas fa-university me-2"></i>CUSAT Office</h4>
-              <p class="mb-2"><i class="fas fa-phone me-2"></i> +91 484 257 7550</p>
-              <p class="mb-2"><i class="fas fa-envelope me-2"></i> <a href="mailto:admissions@cusat.ac.in" class="text-white">admissions@cusat.ac.in</a></p>
-              <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i> Cochin, Kerala, India</p>
-            </div>
-            <div class="col-md-6">
-              <h4><i class="fas fa-university me-2"></i>LETI Office</h4>
-              <p class="mb-2"><i class="fas fa-phone me-2"></i> +7 812 234 5678</p>
-              <p class="mb-2"><i class="fas fa-envelope me-2"></i> <a href="mailto:int.office@etu.ru" class="text-white">int.office@etu.ru</a></p>
-              <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i> St. Petersburg, Russia</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="py-4 bg-light">
-      <div class="container text-center">
-        <div class="d-flex justify-content-center mb-3">
-          <a href="#" class="text-dark mx-3"><i class="fab fa-linkedin fa-lg"></i></a>
-          <a href="#" class="text-dark mx-3"><i class="fab fa-twitter fa-lg"></i></a>
-          <a href="#" class="text-dark mx-3"><i class="fab fa-facebook fa-lg"></i></a>
-          <a href="#" class="text-dark mx-3"><i class="fab fa-instagram fa-lg"></i></a>
-        </div>
-        <p class="mb-0">&copy; 2024 Dual Degree Master's Program. All rights reserved.</p>
-      </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-      AOS.init({
-        duration: 1000,
-        once: true,
-        easing: 'ease-in-out'
-      });
-    </script>
-  </body>
 </html>
